@@ -62,8 +62,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         readItems();
         itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(itemsAdapter);
-        items.add("This is a task");
-        items.add("Press and hold on any tasks to delete them");
+        //items.add("This is a task");
+        //items.add("Press and hold on any tasks to delete them");
         setupListViewListener();
 
         FAB = (ImageButton) findViewById(R.id.add_task);

@@ -76,6 +76,9 @@ public class TaskActivity extends ActionBarActivity {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
+            case R.id.action_settings:
+                gotoSettings(null);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -85,5 +88,10 @@ public class TaskActivity extends ActionBarActivity {
         Log.d(CLASS_NAME, "goHome");
         Intent home = new Intent(this, MainActivity.class);
         startActivity(home);
+    }
+
+    public void gotoSettings(View view) {
+        Intent settings = new Intent(this, SettingsActivity.class);
+        startActivity(settings);
     }
 }

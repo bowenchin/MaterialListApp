@@ -7,10 +7,10 @@
                 <shape android:shape="oval">
                     <solid android:color="#08000000"/>
                     <padding
-                        android:bottom="3px"
-                        android:left="3px"
-                        android:right="3px"
-                        android:top="3px"
+                        android:bottom="2px"
+                        android:left="2px"
+                        android:right="2px"
+                        android:top="2px"
                         />
                 </shape>
             </item>

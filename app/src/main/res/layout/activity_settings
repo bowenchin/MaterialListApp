@@ -16,22 +16,12 @@
             layout="@layout/tool_bar" />
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:id="@+id/settings_window">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="A simple to-do list app that is designed with Material Design elements."
-            android:id="@+id/textView"
-            android:layout_below="@+id/textView4"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+        android:id="@+id/settings_window"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,12 +48,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Visit materiallist.bowenchin.com to learn more and be updated on new features!"
+            android:text="A simple to-do list app that is designed with Material Design elements."
+            android:id="@+id/textView"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Visit http://bowenchin.com/MaterialList/ to learn more and up to date on new features and releases!"
             android:id="@+id/textView5"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Instructions"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Simply tap the '+' icon to add tasks to the list."
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="To delete a task, tap and hold on it."
+            android:layout_marginTop="5dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -72,8 +96,9 @@
             android:text="© 2015 CHIN, Bo Wen "
             android:id="@+id/textView3"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_gravity="bottom|center"
+            android:layout_marginTop="150dp"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
