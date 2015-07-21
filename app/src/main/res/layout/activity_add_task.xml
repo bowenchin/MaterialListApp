@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.bowenchin.android.materiallist.activity.WorkFragment">
+    tools:context="com.bowenchin.android.materiallist.activity.HomeFragment">
     <LinearLayout
         android:id="@+id/container_toolbar"
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@color/colorPrimary"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/ic_action_speaker_notes"
         android:textColor="@color/primary_material_light" />
 
@@ -31,7 +31,7 @@
         android:layout_below="@id/header"
         />
 
-    <ImageButton
+    <!--<ImageButton
         android:src="@drawable/ic_save_white_24dp"
         android:background="@drawable/circle"
         android:id="@+id/save_task_button"
@@ -41,23 +41,32 @@
         android:layout_alignParentRight="true"
         android:layout_alignBottom="@id/header"
         android:layout_marginBottom="-35dp"
-        android:layout_marginRight="20dp" />
-
+        android:layout_marginRight="20dp" />-->
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:ems="15"
         android:id="@+id/editText"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="75dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_alignTop="@+id/body"
         android:background="@color/colorPrimaryLight"
-        android:textAlignment="center"
         android:hint="Enter a new item"
-        android:elevation="3dp"
         />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:clickable="true"
+        android:src="@drawable/ic_save_white_24dp"
+        android:id="@+id/save_task_button"
+        android:onClick="toastButton"
+        android:layout_gravity="bottom"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
 
 
 

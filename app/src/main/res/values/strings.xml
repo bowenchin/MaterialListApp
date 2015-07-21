@@ -17,9 +17,9 @@
         <item>@string/nav_item_notifications</item>-->
     </string-array>
 
-    <string name="title_messages">Work</string>
+    <string name="title_messages">About App</string>
     <string name="title_friends">Friends</string>
-    <string name="title_home">Material Tasker</string>
+    <string name="title_home">Home</string>
 
     <string name="menu_settings">Settings</string>
 

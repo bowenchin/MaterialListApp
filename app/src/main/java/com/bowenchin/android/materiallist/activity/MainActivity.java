@@ -2,23 +2,22 @@ package com.bowenchin.android.materiallist.activity;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.bowenchin.android.materiallist.R;
 
@@ -34,7 +33,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     private static String TAG = MainActivity.class.getSimpleName();
     private Toolbar mToolbar;
     private FragmentDrawer drawerFragment;
-    private ImageButton FAB;
+    private FloatingActionButton FAB;
     private ArrayList<String> items;
     private ArrayAdapter<String> itemsAdapter;
     private ListView lvItems;
@@ -56,7 +55,14 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
-        // ADD HERE
+        //Check if app is launch on first time. If yes, display dialogue help box
+        if (isFirstTime()) {
+            // show dialog
+            new AlertDialog.Builder(this).setTitle("Welcome to Material List").setMessage("Let's help you get started: \n- To add a task, simply tap on the plus button on the bottom-right of the screen \n- Tap and hold on a task to delete it \n").setNeutralButton("Got It", null).show();
+
+        }
+
+        // ADD TASK ITEMS HERE
         lvItems = (ListView) findViewById(R.id.lvItems);
         items = new ArrayList<String>();
         readItems();
@@ -66,7 +72,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         //items.add("Press and hold on any tasks to delete them");
         setupListViewListener();
 
-        FAB = (ImageButton) findViewById(R.id.add_task);
+        FAB = (FloatingActionButton) findViewById(R.id.add_task);
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,6 +112,19 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         String enteredTask = i.getStringExtra("taskText");
         itemsAdapter.add(enteredTask);
         writeItems();
+    }
+
+    private boolean isFirstTime()
+    {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        boolean ranBefore = preferences.getBoolean("RanBefore", false);
+        if (!ranBefore) {
+            // first time
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("RanBefore", true);
+            editor.commit();
+        }
+        return !ranBefore;
     }
 
 
@@ -199,11 +218,11 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 title = getString(R.string.title_home);
                 break;
             /*case 1:
-                //fragment = new FriendsFragment();
-                title = getString(R.string.title_friends);
+                fragment = new HomeFragment();
+                title = getString(R.string.title_activity_add);
                 break;
             case 2:
-                //fragment = new WorkFragment();
+                //fragment = new HomeFragment();
                 title = getString(R.string.title_messages);
                 break;*/
             default:
